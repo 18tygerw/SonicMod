@@ -9,23 +9,26 @@ namespace SonicMod.SkillStates
         public override void OnEnter()
         {
             this.hitboxName = "Sword";
-
+            //Chat.AddMessage(swingIndex.ToString()); //log swingIndex
             this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
+            if (swingIndex != 3) this.damageCoefficient = Modules.StaticValues.comboDamageCoefficient;
+            else this.damageCoefficient = Modules.StaticValues.comboFinisherCoefficient;
+            //this.damageCoefficient = Modules.StaticValues.comboDamageCoefficient;
+            this.procCoefficient = 0.75f; //1f default
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;
-            this.baseDuration = 1f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
+            this.baseDuration = 0.75f; //1f default
+            this.attackStartTime = 0.2f; //0.2f default
+            this.attackEndTime = 0.8f; //0.4f default
+            this.baseEarlyExitTime = 0.3f; //0.4f default
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 4f;
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
+            //this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight"; uncomment this when i want to reset it
+            this.muzzleString = swingIndex != 3 ? "SwingLeft" : "SwingRight"; //Swing left 3 times, 4th swings right
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
             this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
 
@@ -52,12 +55,28 @@ namespace SonicMod.SkillStates
         protected override void SetNextState()
         {
             int index = this.swingIndex;
-            if (index == 0) index = 1;
-            else index = 0;
+            switch (index) // Changes swingIndex depending on which swing we're on. Starts from 0, goes up to 3, totaling 4 hits.
+            {
+                case 0:
+                    index = 1;
+                    break;
+                case 1:
+                    index = 2;
+                    break;
+                case 2:
+                    index = 3;
+                    break;
+                case 3:
+                    index = 0;
+                    break;
+            }
+            //if (index == 0) index = 1; original function
+            //else index = 0;
 
             this.outer.SetNextState(new SonicCombo
             {
                 swingIndex = index
+
             });
         }
 

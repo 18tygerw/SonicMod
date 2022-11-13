@@ -12,7 +12,7 @@ namespace SonicMod.Modules
 
             string desc = "Sonic uses his mobility to his advantage, dealing heavy blows at mach speeds.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Homing attacks send Sonic flying towards enemies, great for retaining momentum and serving as powerful anti air." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Sonic Combo unleashes a flurry of strikes and kicks to deal with foes quickly. " + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Sonic Combo unleashes a flurry of strikes and kicks to deal with foes quickly." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Boost through hordes of foes with lightning speed." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Stomp can be used to destroy enemies below or rush down to the ground quickly." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Bounce Pad lets you reach great heights." + Environment.NewLine + Environment.NewLine;
@@ -39,12 +39,12 @@ namespace SonicMod.Modules
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_STRIKE_NAME", "Sonic Combo");
-            LanguageAPI.Add(prefix + "PRIMARY_STRIKE_DESCRIPTION", Helpers.agilePrefix + $"Strike 4 times for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_STRIKE_DESCRIPTION", Helpers.agilePrefix + $"Strike 4 times for <style=cIsDamage>{100f * StaticValues.comboDamageCoefficient}% damage</style>. The finisher hits for <style=cIsDamage>{100f * StaticValues.comboDamageCoefficient}%</style>.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_DASH_NAME", "Boost");
-            LanguageAPI.Add(prefix + "SECONDARY_DASH_DESCRIPTION", Helpers.agilePrefix + Helpers.heavyPrefix + $"Dash through enemies for <style=cIsDamage>{100f * StaticValues.gunDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_DASH_DESCRIPTION", Helpers.agilePrefix + Helpers.heavyPrefix + $"Dash through enemies for <style=cIsDamage>{100f * StaticValues.boostDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Utility
