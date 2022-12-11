@@ -72,7 +72,7 @@ namespace SonicMod
             // a simple stat hook, adds armor after stats are recalculated
             if (self)
             {
-                if (self.HasBuff(Modules.Buffs.armorBuff))
+                if (self.HasBuff(Modules.Buffs.boostArmorBuff))
                 {
                     self.armor += 300f;
                 }

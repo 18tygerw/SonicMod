@@ -15,7 +15,7 @@ namespace SonicMod.Modules
 
         internal const float comboFinisherCoefficient = 3.2f;
 
-        internal const float boostDamageCoefficient = 4.2f;
+        internal const float boostDamageCoefficient = 5f;
 
         internal const float bombDamageCoefficient = 16f;
     }

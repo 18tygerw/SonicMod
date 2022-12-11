@@ -66,7 +66,7 @@ namespace SonicMod.Modules {
             //stats
             bodyComponent.baseMaxHealth = bodyInfo.maxHealth;
             bodyComponent.baseRegen = bodyInfo.healthRegen;
-            bodyComponent.levelArmor = bodyInfo.armorGrowth;
+            bodyComponent.baseArmor = bodyInfo.armor;
             bodyComponent.baseMaxShield = bodyInfo.shield;
 
             bodyComponent.baseDamage = bodyInfo.damage;
@@ -79,33 +79,38 @@ namespace SonicMod.Modules {
             //level stats
             bodyComponent.autoCalculateLevelStats = bodyInfo.autoCalculateLevelStats;
 
-            bodyComponent.levelDamage = bodyInfo.damageGrowth;
-            bodyComponent.levelAttackSpeed = bodyInfo.attackSpeedGrowth;
-            bodyComponent.levelCrit = bodyInfo.critGrowth;
+            if (bodyInfo.autoCalculateLevelStats)
+            {
+                bodyComponent.levelMaxHealth = Mathf.Round(bodyComponent.baseMaxHealth * 0.3f);
+                bodyComponent.levelMaxShield = Mathf.Round(bodyComponent.baseMaxShield * 0.3f);
+                bodyComponent.levelRegen = bodyComponent.baseRegen * 0.2f;
 
-            bodyComponent.levelMaxHealth = bodyInfo.healthGrowth;
-            bodyComponent.levelRegen = bodyInfo.regenGrowth;
-            bodyComponent.baseArmor = bodyInfo.armor;
-            bodyComponent.levelMaxShield = bodyInfo.shieldGrowth;
+                bodyComponent.levelMoveSpeed = 0f;
+                bodyComponent.levelJumpPower = 0f;
 
-            bodyComponent.levelMoveSpeed = bodyInfo.moveSpeedGrowth;
-            bodyComponent.levelJumpPower = bodyInfo.jumpPowerGrowth;
+                bodyComponent.levelDamage = bodyComponent.baseDamage * 0.2f;
+                bodyComponent.levelAttackSpeed = 0f;
+                bodyComponent.levelCrit = 0f;
 
-            //other
-            bodyComponent.baseAcceleration = bodyInfo.acceleration;
+                bodyComponent.levelArmor = 0f;
 
-            bodyComponent.baseJumpCount = bodyInfo.jumpCount;
+            } else { 
+                //other
+                bodyComponent.baseAcceleration = bodyInfo.acceleration;
 
-            bodyComponent.sprintingSpeedMultiplier = 1.45f;
+                bodyComponent.baseJumpCount = bodyInfo.jumpCount;
 
-            bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
-            bodyComponent.rootMotionInMainState = false;
+                bodyComponent.sprintingSpeedMultiplier = 1.45f;
 
-            bodyComponent.hullClassification = HullClassification.Human;
+                bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
+                bodyComponent.rootMotionInMainState = false;
 
-            bodyComponent.isChampion = false;
-            #endregion
+                bodyComponent.hullClassification = HullClassification.Human;
 
+                bodyComponent.isChampion = false;
+                #endregion
+
+            }
             SetupCameraTargetParams(newBodyPrefab, bodyInfo);
             SetupModelLocator(newBodyPrefab, modelBaseTransform, model.transform);
             //SetupRigidbody(newPrefab);

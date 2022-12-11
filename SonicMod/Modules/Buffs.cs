@@ -7,13 +7,13 @@ namespace SonicMod.Modules
     public static class Buffs
     {
         // armor buff gained during roll
-        internal static BuffDef armorBuff;
+        internal static BuffDef boostArmorBuff;
 
         internal static void RegisterBuffs()
         {
-            armorBuff = AddNewBuff("SonicArmorBuff",
+            boostArmorBuff = AddNewBuff("SonicArmorBuff",
                 LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, 
-                Color.white, 
+                Color.blue, 
                 false, 
                 false);
         }

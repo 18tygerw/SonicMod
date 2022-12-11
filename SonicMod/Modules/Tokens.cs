@@ -39,12 +39,12 @@ namespace SonicMod.Modules
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_STRIKE_NAME", "Sonic Combo");
-            LanguageAPI.Add(prefix + "PRIMARY_STRIKE_DESCRIPTION", Helpers.agilePrefix + $"Strike 4 times for <style=cIsDamage>{100f * StaticValues.comboDamageCoefficient}% damage</style>. The finisher hits for <style=cIsDamage>{100f * StaticValues.comboDamageCoefficient}%</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_STRIKE_DESCRIPTION", Helpers.agilePrefix + $"Strike 4 times for <style=cIsDamage>{100f * StaticValues.comboDamageCoefficient}% damage</style>. The finisher hits for <style=cIsDamage>{100f * StaticValues.comboFinisherCoefficient}%</style>.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_DASH_NAME", "Boost");
-            LanguageAPI.Add(prefix + "SECONDARY_DASH_DESCRIPTION", Helpers.agilePrefix + Helpers.heavyPrefix + $"Dash through enemies for <style=cIsDamage>{100f * StaticValues.boostDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_DASH_DESCRIPTION", Helpers.agilePrefix + Helpers.heavyPrefix + $"Dash through enemies for <style=cIsDamage>{100f * StaticValues.boostDamageCoefficient}% damage</style>, gaining <style=cIsUtility>300 armor</style>.");
             #endregion
 
             #region Utility

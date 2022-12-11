@@ -13,7 +13,7 @@ namespace SonicMod.SkillStates
             this.damageType = DamageType.Generic;
             if (swingIndex != 3) this.damageCoefficient = Modules.StaticValues.comboDamageCoefficient;
             else this.damageCoefficient = Modules.StaticValues.comboFinisherCoefficient;
-            //this.damageCoefficient = Modules.StaticValues.comboDamageCoefficient;
+            //this.damageCoefficient = Modules.StaticValues.comboDamageCoefficient; default value
             this.procCoefficient = 0.75f; //1f default
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;

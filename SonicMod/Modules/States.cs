@@ -10,9 +10,12 @@ namespace SonicMod.Modules
         internal static void RegisterStates()
         {
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
+
+            Modules.Content.AddEntityState(typeof(BaseBoostAttack));
+
             Modules.Content.AddEntityState(typeof(SonicCombo));
 
-            Modules.Content.AddEntityState(typeof(Shoot));
+            Modules.Content.AddEntityState(typeof(BoostWIP));
 
             Modules.Content.AddEntityState(typeof(Roll));
 
